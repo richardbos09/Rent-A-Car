@@ -8,8 +8,8 @@ class Globals {
   public $navbar_php = "/navbar.php";
   public $findcar_php = "/find_car.php";
   public $aboutus_php = "/about_us.php";
-  public $modalregister_php = "/modal_register.php";
-  public $modallogin_php = "/modal_login.php";
+  public $register_php = "/register.php";
+  public $login_php = "/login.php";
   
   private $root;
   private $incl = "/incl";
@@ -40,8 +40,8 @@ class Globals {
     $this->findcar_php = $this->content.$this->findcar_php;
     $this->aboutus_php = $this->content.$this->aboutus_php;
     
-    $this->modalregister_php = $this->modal.$this->modalregister_php;
-    $this->modallogin_php = $this->modal.$this->modallogin_php;
+    $this->register_php = $this->modal.$this->register_php;
+    $this->login_php = $this->modal.$this->login_php;
   }
 }
 

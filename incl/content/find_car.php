@@ -5,13 +5,18 @@
     <p class="lead">simpel, dichtbij en goed geregeld</p>
     <div class="row">
       <div class="large-6 columns">
-        <input type="text" class='search-car' placeholder="Waar zoek je een auto?">
+        <select class="search-car">
+          <option value="" disabled selected hidden>Waar zoek je een auto?</option>
+          <option value="">Rotterdam</option>
+          <option value="">Amsterdam</option>
+          <option value="">Den Haag</option>
+        </select>
       </div>
       <div class="large-2 columns">
-        <input type="text" class='pick-up' placeholder="Ophalen">
+        <input type="text" id="pick-up" placeholder="Ophalen">
       </div>
       <div class="large-2 columns">
-        <input type="text" class='bring-back' placeholder="Terugbrengen">
+        <input type="text" id="bring-back" placeholder="Terugbrengen">
       </div>
       <div class="large-2 columns">
         <a href="#" class="button searching">Zoeken</a>
