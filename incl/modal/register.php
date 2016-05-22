@@ -16,7 +16,7 @@ class Register extends Database {
       $this->emailExist();
       if($this->row == 0) {
         $this->insertUser();
-        $this->backToHome();
+        $this->backTopage();
       }
       else {
         $this->reportError();
@@ -59,8 +59,8 @@ class Register extends Database {
     $this->emailaddress = "Email is al in gebruik";
   }
   
-  public function backToHome() {
-    header("Location: http://".$_SERVER['SERVER_NAME'].$this->project);
+  public function backToPage() {
+    header("Location: http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
   }
 }
 

@@ -2,14 +2,19 @@
 
 class Globals {
   protected $project = "/rent_a_car";
+  protected $home = "/home";
   
   public $database_php = "/database.php";
+  public $buffer_php = "/buffer.php";
   public $session_php = "/session.php";
   public $navbar_php = "/navbar.php";
+  public $searchcar_php = "/search_car.php";
   public $findcar_php = "/find_car.php";
+  public $reservecar_php = "/reserve_car.php";
   public $aboutus_php = "/about_us.php";
   public $register_php = "/register.php";
   public $login_php = "/login.php";
+  public $logout_php = "/logout.php";
   
   private $root;
   private $incl = "/incl";
@@ -33,15 +38,19 @@ class Globals {
   
   public function inclScripts() {
     $this->database_php = $this->incl.$this->database_php;
+    $this->buffer_php = $this->incl.$this->buffer_php;
     $this->session_php = $this->incl.$this->session_php;
     
     $this->navbar_php = $this->header.$this->navbar_php;
     
+    $this->searchcar_php = $this->content.$this->searchcar_php;
     $this->findcar_php = $this->content.$this->findcar_php;
+    $this->reservecar_php = $this->content.$this->reservecar_php;
     $this->aboutus_php = $this->content.$this->aboutus_php;
     
     $this->register_php = $this->modal.$this->register_php;
     $this->login_php = $this->modal.$this->login_php;
+    $this->logout_php = $this->modal.$this->logout_php;
   }
 }
 

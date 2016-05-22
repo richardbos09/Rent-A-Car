@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 22 mei 2016 om 00:40
+-- Gegenereerd op: 23 mei 2016 om 01:08
 -- Serverversie: 5.7.11
 -- PHP-versie: 5.6.19
 
@@ -40,6 +40,31 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`account_id`, `account_user`, `account_email`, `account_pass`) VALUES
 (1, 'Administrator', 'administrator@rentacar.nl', 'easyphp');
 
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `cars`
+--
+
+CREATE TABLE `cars` (
+  `car_id` int(10) NOT NULL,
+  `car_sign` char(8) NOT NULL,
+  `car_brand` varchar(20) NOT NULL,
+  `car_type` varchar(32) NOT NULL,
+  `car_kind` varchar(22) NOT NULL,
+  `car_description` varchar(25) NOT NULL,
+  `car_gps` enum('ja','nee') NOT NULL,
+  `car_price` decimal(10,2) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `cars`
+--
+
+INSERT INTO `cars` (`car_id`, `car_sign`, `car_brand`, `car_type`, `car_kind`, `car_description`, `car_gps`, `car_price`) VALUES
+(1, '11-PO-TT', 'BMW', '730 (diesel v12)', 'Standaard', '5 personen', 'ja', '85.00'),
+(2, '18-YY-GG', 'BMW', '323 (benzine)', 'Sportwagen', '2 personen', 'nee', '85.00');
+
 --
 -- Indexen voor geëxporteerde tabellen
 --
@@ -51,6 +76,12 @@ ALTER TABLE `accounts`
   ADD PRIMARY KEY (`account_id`);
 
 --
+-- Indexen voor tabel `cars`
+--
+ALTER TABLE `cars`
+  ADD PRIMARY KEY (`car_id`);
+
+--
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
@@ -58,7 +89,12 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT voor een tabel `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `account_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `account_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT voor een tabel `cars`
+--
+ALTER TABLE `cars`
+  MODIFY `car_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

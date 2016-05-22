@@ -6,7 +6,7 @@
   float: right;
 }
 
-.top-btn {
+.top-btn, .btn-confirm {
   width: 87px;
 }
 
@@ -16,11 +16,19 @@
 }
 
 .searching {
+  width: 150px;
+}
+
+.reserve {
   width: 100%;
 }
 
 .txt-orange {
   color: orange;
+}
+
+.txt-center, btn-center {
+  text-align: center;
 }
 
 @media screen and (max-width: 39.9375em) {

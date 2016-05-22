@@ -17,7 +17,7 @@ class Login extends Database {
       $this->userExist();
       if($this->row == 1) {
         $this->initSession();
-        $this->backToHome();
+        $this->backToPage();
       }
       else {
         $this->reportError();
@@ -32,7 +32,6 @@ class Login extends Database {
     $this->email = mysqli_real_escape_string($this->db, $this->email);
     $this->pass = mysqli_real_escape_string($this->db, $this->pass);
   }
-  
   
   public function userExist() {
     $this->sql = "
@@ -60,8 +59,8 @@ class Login extends Database {
     $this->password = "Wachtwoord is verkeerd";
   }
   
-  public function backToHome() {
-    header("Location: http://".$_SERVER['SERVER_NAME'].$this->project);
+  public function backToPage() {
+    header("Location: http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
   }
 }
 
@@ -79,6 +78,6 @@ $login = new Login();
   </form>
 
   <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
