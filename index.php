@@ -32,12 +32,13 @@
   
   if(empty($_GET['content'])) {
     require_once $globals->aboutus_php;
+    $session->lastPage($globals->aboutus_php);
   }
   else {
    switch($_GET['content']) {
     default:
       require_once $globals->aboutus_php;
-      $session->rmbrPage($globals->aboutus_php);
+      $session->lastPage($globals->aboutus_php);
       break;
     case 'register':
       $session->lastVisit();
@@ -50,11 +51,11 @@
       break;
     case 'zoek':
       require_once $globals->findcar_php;
-      $session->rmbrPage($globals->findcar_php);
+      $session->lastPage($globals->findcar_php);
       break;
     case 'reserveer':
       require_once $globals->reservecar_php;
-      $session->rmbrPage($globals->reservecar_php);
+      $session->lastPage($globals->reservecar_php);
     } 
   }
   

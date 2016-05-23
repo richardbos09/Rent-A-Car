@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 23 mei 2016 om 01:08
+-- Gegenereerd op: 23 mei 2016 om 16:56
 -- Serverversie: 5.7.11
 -- PHP-versie: 5.6.19
 
@@ -54,16 +54,17 @@ CREATE TABLE `cars` (
   `car_kind` varchar(22) NOT NULL,
   `car_description` varchar(25) NOT NULL,
   `car_gps` enum('ja','nee') NOT NULL,
-  `car_price` decimal(10,2) NOT NULL
+  `car_price` decimal(10,2) NOT NULL,
+  `car_img` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `cars`
 --
 
-INSERT INTO `cars` (`car_id`, `car_sign`, `car_brand`, `car_type`, `car_kind`, `car_description`, `car_gps`, `car_price`) VALUES
-(1, '11-PO-TT', 'BMW', '730 (diesel v12)', 'Standaard', '5 personen', 'ja', '85.00'),
-(2, '18-YY-GG', 'BMW', '323 (benzine)', 'Sportwagen', '2 personen', 'nee', '85.00');
+INSERT INTO `cars` (`car_id`, `car_sign`, `car_brand`, `car_type`, `car_kind`, `car_description`, `car_gps`, `car_price`, `car_img`) VALUES
+(1, '11-PO-TT', 'BMW', '730 (diesel v12)', 'Standaard', '5 personen', 'ja', '85.00', 'cars/bmw/BMW_730d.jpg'),
+(2, '18-YY-GG', 'BMW', '323 (benzine)', 'Sportwagen', '2 personen', 'nee', '85.00', 'cars/bmw/BMW_323i.jpg');
 
 --
 -- Indexen voor geëxporteerde tabellen

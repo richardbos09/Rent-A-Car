@@ -46,12 +46,16 @@ var checkout = $('.bring-back').fdatepicker({
 
 $('.begin-time').timepicker({ 
   'scrollDefault': 'now',
-  'timeFormat': 'h:i',
-  'disableTextInput' : true
+  'timeFormat': 'H:i',
+  'disableTextInput' : true,
+  'show2400': true
 });
 
 $('.end-time').timepicker({ 
   'scrollDefault': 'now',
-  'timeFormat': 'h:i',
-  'disableTextInput' : true
+  'timeFormat': 'H:i',
+  'disableTextInput' : true,
+  'show2400': true
 });
+
+alert("test");

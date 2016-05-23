@@ -6,7 +6,7 @@ class Session {
     session_start();   
   }
   
-  public function rmbrPage($lastvisit) {
+  public function lastPage($lastvisit) {
     $_SESSION['lastvisit'] = $lastvisit;
   }
   
