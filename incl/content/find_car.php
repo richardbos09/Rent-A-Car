@@ -20,23 +20,19 @@ class FindCar extends Database {
     
     $this->query = mysqli_query($this->db, $this->sql);
     
-    $this->test = mysqli_fetch_assoc($this->query);
+    $this->row = mysqli_fetch_assoc($this->query);
     
-    $this->count = $this->test['count'];
+    $this->count = $this->row['count'];
   }
   
   public function getCars() {
     $this->sql = "
-      SELECT c.car_id, c.car_brand, c.car_type, c.car_description, c.car_price, c.car_img
+      SELECT c.car_id, c.car_brand, c.car_type, c.car_desc, c.car_price, c.car_img
 			FROM cars AS c
 			ORDER BY c.car_price
     ";
     
     $this->query = mysqli_query($this->db, $this->sql);
-    
-    // $this->test = mysqli_fetch_assoc($this->query);
-    
-    // $this->count = $this->test['count'];
   }
   
   public function putCars() {
@@ -45,13 +41,13 @@ class FindCar extends Database {
               <div class='callout'>
                 <p>".$this->rows['car_brand']." ".$this->rows['car_type']."</p>
                 <p><img class='cars' src='img/".$this->rows['car_img']."'></p>
-                <p class='lead'>".$this->rows['car_description']."</p>
+                <p class='lead'>".$this->rows['car_desc']."</p>
                 <div class='row' style='width: 100%'>
                   <div class='large-6 columns' style='width: 50%'>
                     <h3>&euro; ".$this->rows['car_price']."</h3>
                   </div>
                   <div class='large-6 columns' style='width: 50%'>
-                    <a href='reserveer?".$this->rows['car_id']."'><button type='button' class='button hollow reserve'>Reserveren</button></a>
+                    <a href='reserveer?id=".$this->rows['car_id']."'><button type='button' class='button hollow reserve'>Reserveren</button></a>
                   </div>
                 </div>
               </div>

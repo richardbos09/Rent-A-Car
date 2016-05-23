@@ -1,16 +1,18 @@
 <?php
 
 class Navbar {
-  public $login = "login";
+  public $login_eng = "login";
+  public $login_nl = "login";
   
   public function __construct() {
     if(isset($_SESSION['loggedin'])) {
-      $this->login = "loguit";
+      $this->login_eng = "logout";
+      $this->login_nl = "loguit";
     }
   }
   
   public function showRegister() {
-    echo "<li><a href='register' class='button top-btn'>Register</a></li>";
+    echo "<li><a class='button top-btn' data-open='register'>Register</a></li>";
   }
 }
 
@@ -30,7 +32,7 @@ $navbar = new Navbar();
     <ul class="menu">
       <li><a href="account">Mijn Account</a></li>
       <?php (empty($_SESSION['loggedin']) ? $navbar->showRegister() : ""); ?>
-      <li><a href="<?php echo $navbar->login; ?>" class="button top-btn"><?php echo ucfirst($navbar->login); ?></a></li>
+      <li><a class="button top-btn" data-open="<?php echo $navbar->login_eng; ?>"><?php echo ucfirst($navbar->login_nl); ?></a></li>
     </ul>
   </div>
 </div>

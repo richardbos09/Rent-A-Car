@@ -9,6 +9,7 @@
   <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
   <link href='https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.3/css/foundation-datepicker.min.css' rel='stylesheet' type='text/css'>
   <link href='https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//fian.my.id/marka/static/marka/css/marka.css">
   <link href='css/modal.css' rel='stylesheet' type='text/css'>
   <link href='css/custom.css' rel='stylesheet' type='text/css'>
   <style>
@@ -28,45 +29,42 @@
   require_once $globals->navbar_php;
   
   // Content
-  require_once $globals->searchcar_php;
-  
   if(empty($_GET['content'])) {
+    require_once $globals->searchcar_php;
     require_once $globals->aboutus_php;
     $session->lastPage($globals->aboutus_php);
   }
   else {
    switch($_GET['content']) {
     default:
+      require_once $globals->searchcar_php;
       require_once $globals->aboutus_php;
       $session->lastPage($globals->aboutus_php);
       break;
-    case 'register':
-      $session->lastVisit();
-      break;
-    case 'login':
-      $session->lastVisit();
-      break;
-    case 'logout':
-      $session->lastVisit();
-      break;
     case 'zoek':
+      require_once $globals->searchcar_php;
       require_once $globals->findcar_php;
       $session->lastPage($globals->findcar_php);
       break;
     case 'reserveer':
+      require_once $globals->searchcar_php;
       require_once $globals->reservecar_php;
       $session->lastPage($globals->reservecar_php);
+      break;
+    case 'account':
+      require_once $globals->myaccount_php;
+      $session->lastPage($globals->myaccount_php);
+      break;
     } 
   }
   
   // Modals
-  if(empty($_SESSION['loggedin'])) {
-    require_once $globals->register_php;
-    require_once $globals->login_php;
-  }
-  else {
-    require_once $globals->logout_php;  
-  }
+  require_once $globals->rentcar_php;
+  require_once $globals->alert_php;
+  require_once $globals->register_php;
+  require_once $globals->login_php;  
+  require_once $globals->logout_php;
+    
   
   ?>
 
@@ -74,6 +72,7 @@
   <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.3/js/foundation-datepicker.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
+  <script src="//fian.my.id/marka/static/marka/js/marka.js"></script>
   <script src="js/form.js"></script>
   <script src="js/custom.js"></script>
   <script>

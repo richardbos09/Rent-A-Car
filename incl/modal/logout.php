@@ -30,9 +30,13 @@ $logout = new Logout();
         <button type="submit" name="logout" class="button btn-confirm">Ok</button>
       </div>
       <div class="large-6 columns btn-center">
-        <a href="home"><button type="button" class="button hollow btn-confirm">Cancel</button></a>
+        <button type="button" onclick="backToPage();" class="button hollow btn-confirm">Cancel</button></a>
       </div>
     </div>
     
   </form>
+  
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>

@@ -6,7 +6,8 @@
   float: right;
 }
 
-.top-btn, .btn-confirm {
+.top-btn,
+.btn-confirm {
   width: 87px;
 }
 
@@ -16,24 +17,62 @@
 }
 
 .cars {
-  width: 300px;
-  height: 150px;
+  width: 400px;
+  height: 200px;
+}
+
+.thumbnail {
+  width: 650px;
+  height: 350px;
 }
 
 .searching {
   width: 150px;
 }
 
+.account {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .reserve {
   width: 100%;
+}
+
+.float-left {
+  float: left;
 }
 
 .txt-orange {
   color: orange;
 }
 
-.txt-center, btn-center {
+h6 {
+  font-size: 0.75rem; 
+}
+
+input:disabled,
+input[readonly],
+textarea:disabled,
+textarea[readonly] {
+  background-color: #fefefe;
+  cursor: default;
+}
+
+button:disabled {
+  background-color: #e6e6e6;
+  cursor: default;
+}
+
+.txt-center,
+btn-center {
   text-align: center;
+}
+
+@media screen and (min-width: 40em) {
+  h6 {
+     font-size: 0.75rem; 
+  }
 }
 
 @media screen and (max-width: 39.9375em) {

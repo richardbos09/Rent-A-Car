@@ -4,7 +4,7 @@
     <img class="thumbnail" src="http://placehold.it/650x350">
   </div>
   <div class="medium-6 columns medium-pull-6">
-    <h2>Lorem Ipsum</h2>
+    <h2>Over Ons</h2>
     <h2 class="txt-orange"></h2>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan enim id nibh porttitor, ac tempus mauris rhoncus.
