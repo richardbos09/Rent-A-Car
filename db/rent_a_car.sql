@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 23 mei 2016 om 16:56
+-- Gegenereerd op: 24 mei 2016 om 02:53
 -- Serverversie: 5.7.11
 -- PHP-versie: 5.6.19
 
@@ -28,7 +28,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `accounts` (
   `account_id` int(10) NOT NULL,
-  `account_user` varchar(25) NOT NULL,
   `account_email` varchar(50) NOT NULL,
   `account_pass` varchar(25) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -37,8 +36,8 @@ CREATE TABLE `accounts` (
 -- Gegevens worden geëxporteerd voor tabel `accounts`
 --
 
-INSERT INTO `accounts` (`account_id`, `account_user`, `account_email`, `account_pass`) VALUES
-(1, 'Administrator', 'administrator@rentacar.nl', 'easyphp');
+INSERT INTO `accounts` (`account_id`, `account_email`, `account_pass`) VALUES
+(1, 'administrator@rentacar.nl', 'easyphp');
 
 -- --------------------------------------------------------
 
@@ -52,7 +51,7 @@ CREATE TABLE `cars` (
   `car_brand` varchar(20) NOT NULL,
   `car_type` varchar(32) NOT NULL,
   `car_kind` varchar(22) NOT NULL,
-  `car_description` varchar(25) NOT NULL,
+  `car_desc` varchar(25) NOT NULL,
   `car_gps` enum('ja','nee') NOT NULL,
   `car_price` decimal(10,2) NOT NULL,
   `car_img` varchar(250) NOT NULL
@@ -62,7 +61,7 @@ CREATE TABLE `cars` (
 -- Gegevens worden geëxporteerd voor tabel `cars`
 --
 
-INSERT INTO `cars` (`car_id`, `car_sign`, `car_brand`, `car_type`, `car_kind`, `car_description`, `car_gps`, `car_price`, `car_img`) VALUES
+INSERT INTO `cars` (`car_id`, `car_sign`, `car_brand`, `car_type`, `car_kind`, `car_desc`, `car_gps`, `car_price`, `car_img`) VALUES
 (1, '11-PO-TT', 'BMW', '730 (diesel v12)', 'Standaard', '5 personen', 'ja', '85.00', 'cars/bmw/BMW_730d.jpg'),
 (2, '18-YY-GG', 'BMW', '323 (benzine)', 'Sportwagen', '2 personen', 'nee', '85.00', 'cars/bmw/BMW_323i.jpg');
 
