@@ -35,7 +35,7 @@ class Login extends Database {
   
   public function userExist() {
     $this->sql = "
-      SELECT a.account_id, a.account_user, a.account_email, a.account_pass
+      SELECT a.account_id, a.account_email, a.account_pass
 			FROM accounts AS a
 			WHERE a.account_email = '".$this->email."'
 				AND a.account_pass = '".$this->pass."'

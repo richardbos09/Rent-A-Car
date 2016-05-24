@@ -3,8 +3,9 @@
 class ReserveCar extends Database {
   public $price = "0.00";
   
-  public $percentage;
   public $id;
+  public $percentage;
+  public $onclick = "notSigned()";
   public $disabled = "disabled";
   public $btntext = "Geen auto geselecteerd";
   
@@ -23,6 +24,9 @@ class ReserveCar extends Database {
       $this->id = $_GET['id'];
       $this->disabled = "";
       $this->btntext = "Auto huren";
+      if(isset($_SESSION['loggedin'])) {
+        $this->onclick = "validateReserve(".$this->id.")";
+      }
       
       $this->connDatabase();
       $this->dbError();
@@ -49,6 +53,10 @@ class ReserveCar extends Database {
     $this->desc = $this->row['car_desc'];
     $this->gps = $this->row['car_gps'];
     $this->price = $this->row['car_price'];
+  }
+  
+  public function checkSession() {
+    
   }
 }
 
@@ -93,6 +101,6 @@ $reservecar = new ReserveCar();
         <input type="text" class="subtotal" placeholder="Totaal prijs" disabled>
       </div>
     </div>
-    <button class="button large expanded" onclick="validateReserve(<?php echo $reservecar->id; ?>);"  <?php echo $reservecar->disabled; ?> ><?php echo $reservecar->btntext; ?></button>
+    <button class="button large expanded" onclick="<?php echo $reservecar->onclick; ?>"  <?php echo $reservecar->disabled; ?> ><?php echo $reservecar->btntext; ?></button>
   </div>
 </div>

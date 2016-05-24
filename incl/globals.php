@@ -5,6 +5,7 @@ class Globals {
   protected $home = "/home";
   protected $btw = "21";
   
+  public $tcpdf_php = "/tcpdf.php";
   public $database_php = "/database.php";
   public $buffer_php = "/buffer.php";
   public $session_php = "/session.php";
@@ -21,6 +22,8 @@ class Globals {
   public $alert_php = "/alert.php";
   
   private $root;
+  private $ext = "/ext";
+  private $tcpdf = "/tcpdf";
   private $incl = "/incl";
   private $header = "/header";
   private $content = "/content";
@@ -33,14 +36,18 @@ class Globals {
   }
   
   public function dirPaths() {
-    $this->incl = $this->root.$this->incl;
+    $this->ext = $this->root.$this->ext;
+    $this->tcpdf = $this->ext.$this->tcpdf;
     
+    $this->incl = $this->root.$this->incl;
     $this->header = $this->incl.$this->header;
     $this->content = $this->incl.$this->content;
     $this->modal = $this->incl.$this->modal;
   }
   
   public function inclScripts() {
+    $this->tcpdf_php = $this->tcpdf.$this->tcpdf_php;
+    
     $this->database_php = $this->incl.$this->database_php;
     $this->buffer_php = $this->incl.$this->buffer_php;
     $this->session_php = $this->incl.$this->session_php;

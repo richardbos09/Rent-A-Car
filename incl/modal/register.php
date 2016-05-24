@@ -25,7 +25,6 @@ class Register extends Database {
   }
   
   public function escString() {
-    $this->user = $_POST['user'];
     $this->email = $_POST['email'];
     $this->pass = $_POST['pass'];
     
@@ -36,7 +35,7 @@ class Register extends Database {
   
   public function emailExist() {
     $this->sql = "
-      SELECT a.account_id, a.account_user, a.account_email, a.account_pass
+      SELECT a.account_id, a.account_email, a.account_pass
 			FROM accounts AS a
 			WHERE a.account_email = '".$this->email."'
     ";
@@ -48,8 +47,8 @@ class Register extends Database {
   
   public function insertUser() {
     $this->sql = "
-      INSERT INTO accounts (account_id, account_user, account_email, account_pass)
-      VALUES (NULL, '".$this->user."', '".$this->email."', '".$this->pass."')
+      INSERT INTO accounts (account_id, account_email, account_pass)
+      VALUES (NULL, '".$this->email."', '".$this->pass."')
     ";
     
     $this->query = mysqli_query($this->db, $this->sql);
@@ -71,7 +70,6 @@ $register = new Register();
 <div class="reveal modal-container" id="register" data-reveal>
   <h1>Register</h1><br>
   <form method="post">
-    <input type="text" name="user" placeholder="Gebruikersnaam"  required>
     <input type="email" name="email" placeholder="<?php echo $register->emailaddress; ?>" required>
     <input type="password" id="password" name="pass" placeholder="Wachtwoord" required>
     <input type="password" id="confirm-password" placeholder="Vérifier Wachtwoord" required>

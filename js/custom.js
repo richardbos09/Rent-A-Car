@@ -62,6 +62,10 @@ function backToPage() {
   location.reload();
 }
 
+function notSigned() {
+  $('#login').foundation('open');
+}
+
 function callOfDays() {
   var price = $(".price").val();
   

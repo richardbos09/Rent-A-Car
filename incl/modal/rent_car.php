@@ -2,9 +2,13 @@
 if(isset($_POST['id'])) {
  require_once "../globals.php";
  require_once $globals->database_php;
+ require_once $globals->session_php;
 }
 
 class RentCar extends Database {
+  public $renter = "Administrator";
+  public $custid = "#0";
+  
   public $brand;
   public $type;
   public $desc;
@@ -22,6 +26,9 @@ class RentCar extends Database {
   
   
   public function __construct() {
+    $this->connDatabase();
+    $this->dbError();
+      
     if(isset($_POST['id'])) {
       $this->pickup = $_POST['pickup'];
       $this->bringback = $_POST['bringback'];
@@ -33,9 +40,10 @@ class RentCar extends Database {
       $this->btw = $_POST['btw'];
       $this->total = $this->subtotal + $this->btw;
 
-      $this->connDatabase();
-      $this->dbError();
       $this->getCar();
+    }
+    if(isset($_POST['pay'])) {
+      echo "test";
     }
   }
   
@@ -64,8 +72,21 @@ $rentcar = new RentCar();
 <div class="reveal modal-container" id="rent" data-reveal>
   <h1>Huur auto</h1>
   <hr>
-  <label>Auto keuze: <?php echo $rentcar->brand." ".$rentcar->type; ?><label>
-  <label>Omschrijving: <?php echo $rentcar->desc; ?><label>
+  <form method="post">
+  <div class="row">
+    <div class="large-6 float-left">
+      <label>Huurder:</label>
+      <label>Klantnummer:</label>
+      <label>Auto keuze:<label>
+      <label>Omschrijving:<label>
+    </div>
+    <div class="large-6 float-left">
+      <label><?php echo $rentcar->renter; ?><label>
+      <label><?php echo $rentcar->custid; ?><label>
+      <label><?php echo $rentcar->brand." ".$rentcar->type; ?><label>
+      <label><?php echo $rentcar->desc; ?><label>
+    </div>
+  </div>
   <br>
   <div class="row">
     <div class="large-6 float-left">
@@ -75,10 +96,10 @@ $rentcar = new RentCar();
       <label>Eind tijd:<label>
     </div>
     <div class="large-6 float-left">
-      <label id="pick-up"><?php echo $rentcar->pickup; ?><label><label>
-      <label id="bring-back"><?php echo $rentcar->bringback; ?><label><label>
-      <label id="begin-time"><?php echo $rentcar->begintime; ?><label><label>
-      <label id="end-time"><?php echo $rentcar->endtime; ?><label><label>
+      <label id="pick-up"><?php echo $rentcar->pickup; ?><label>
+      <label id="bring-back"><?php echo $rentcar->bringback; ?><label>
+      <label id="begin-time"><?php echo $rentcar->begintime; ?><label>
+      <label id="end-time"><?php echo $rentcar->endtime; ?><label>
     </div>
   </div>
   <br>
@@ -99,13 +120,13 @@ $rentcar = new RentCar();
   <br>
   <div class="row">
     <div class="large-6 float-left">
-      <button type="button" name="pay" class="button btn-confirm">Betaal</button>
+      <button type="type" name="pay" class="button btn-confirm">Betaal</button>
     </div>
     <div class="large-6 float-left">
       <button type="button" onclick="backToPage();" class="button hollow btn-confirm">Cancel</button></a>
     </div>
   </div>
-  
+  </form>
   <button class="close-button" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
